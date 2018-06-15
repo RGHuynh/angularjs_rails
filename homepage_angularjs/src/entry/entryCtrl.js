@@ -3,9 +3,9 @@
     .module('myApp')
     .controller('entryCtrl', function(){
       var ctrl = this;
-      ctrl.update = function(newEntry){
-        ctrl.onUpdate(newEntry);
-      }
 
+      ctrl.delete = function(id){
+        ctrl.onDelete({id: id});
+      }
       });
 })();

@@ -1,7 +1,7 @@
 (function(){
   angular
   .module('myApp')
-  .controller('homepageCtrl', ['$scope','$http', function( $http){
+  .controller('homepageCtrl', ['$http', function($http){
     var ctrl = this ;
     ctrl.post = "";
     ctrl.entries = {};
@@ -13,8 +13,16 @@
         data: {name: newEntry}
       }).then(function successCallback(response){
         ctrl.entries = response.data
-      })
+      });
     };
+
+    ctrl.deleteEntry = function(id){
+      $http({
+        method: 'DELETE',
+        url: "http://localhost:3000/lists/" + id
+      });
+    };
+
 
     $http({
       method: "GET",

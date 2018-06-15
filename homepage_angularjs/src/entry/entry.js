@@ -6,7 +6,7 @@
       controller: 'entryCtrl',
       bindings: {
         name: '<',
-        onUpdate: '&'
+        onDelete: '&'
       }
     })
 })(window.angular);
