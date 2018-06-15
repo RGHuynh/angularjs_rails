@@ -1,8 +1,11 @@
-(function(){
+(function(angular){
   angular
     .module('myApp')
     .component('entry', {
-      templateUrl: 'entry.html',
-      controller: 'entryCtrl.js'
+      templateUrl: '../src/entry/entry.html',
+      controller: 'entryCtrl',
+      bindings: {
+        name: '<'
+      }
     })
 })(window.angular);

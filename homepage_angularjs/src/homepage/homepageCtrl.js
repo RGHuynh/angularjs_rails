@@ -1,20 +1,16 @@
 (function(){
   angular
   .module('myApp')
-  .controller('homepgCtrl', ['$scope','$http', function($scope, $http){
-    $scope.welcome = "welcome ";
+  .controller('homepageCtrl', ['$scope','$http', function($scope, $http){
+    var ctrl = this ;
+    ctrl.entries = {};
 
     $http({
       method: "GET",
       url: 'http://localhost:3000/lists.json'
     }).then(function successCallback(response){
-      
-      angular.forEach(response.data, function(key, value){
-        $scope.entry = key.name;
-      });
+      ctrl.entries = response.data;
     });
-
-
 
   }]);
 })();
