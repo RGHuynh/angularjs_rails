@@ -1,4 +1,6 @@
 <div ng-controller="entryCtrl">
   part2
   {{$ctrl.name.name}}
+  {{$ctrl.name.id}}
+  <button type='button' ng-click="$ctrl.delete($ctrl.name.id)">Delete</button>
 </div>
