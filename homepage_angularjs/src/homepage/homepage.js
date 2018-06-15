@@ -2,7 +2,7 @@
   angular
     .module('myApp')
     .component('homepageList', {
-      templateUrl: '../src/homepage/homepg.html',
+      templateUrl: '../src/homepage/homepage.html',
       controller: 'homepageCtrl'
     })
 })(window.angular);
