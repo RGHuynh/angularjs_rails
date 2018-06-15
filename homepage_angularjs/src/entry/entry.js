@@ -5,7 +5,8 @@
       templateUrl: '../src/entry/entry.html',
       controller: 'entryCtrl',
       bindings: {
-        name: '<'
+        name: '<',
+        onUpdate: '&'
       }
     })
 })(window.angular);

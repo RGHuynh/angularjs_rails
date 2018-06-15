@@ -1,4 +1,8 @@
 <div ng-controller="homepageCtrl">
   part 1
-  <entry ng-repeat="entry in $ctrl.entries" name="entry"></entry>
+  <input type="text" name='newEntry' ng-model='$ctrl.post'> 
+  <input type="button" ng-click='$ctrl.updateEntry($ctrl.post)' value="Enter">
+
+ 
+  <entry ng-repeat="entry in $ctrl.entries" name="entry" on-update="$ctrl.updateEntry(newEntry)"></entry>
 </div>

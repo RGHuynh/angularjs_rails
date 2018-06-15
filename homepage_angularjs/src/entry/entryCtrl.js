@@ -1,8 +1,11 @@
 (function(){
   angular
     .module('myApp')
-    .controller('entryCtrl', function($log){
+    .controller('entryCtrl', function(){
       var ctrl = this;
-      console.log(name)
+      ctrl.update = function(newEntry){
+        ctrl.onUpdate(newEntry);
+      }
+
       });
 })();
