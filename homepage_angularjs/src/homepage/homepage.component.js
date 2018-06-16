@@ -24,10 +24,8 @@
             break;
           }
         }
-
-
-      })
-    }
+      });
+    };
 
     ctrl.createEntry = function(newEntry){
         $http({
@@ -52,10 +50,11 @@
     }).then(function successCallback(response){
       ctrl.entries = response.data;
     });
+    
   }
 
   angular
   .module('myApp')
-  .component('homepage', config)
+  .component('homepage', config);
 
 })();
