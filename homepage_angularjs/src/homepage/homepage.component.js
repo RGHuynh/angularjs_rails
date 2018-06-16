@@ -11,6 +11,16 @@
     ctrl.post = "";
     ctrl.entries = [];
 
+    ctrl.updateEntry = function(id, newEntry){
+      $http({
+        method: "PUT",
+        url: "http://localhost:3000/lists/" + id + ".json",
+        data: {name: newEntry}
+      }).then(function successCallback(response){
+        console.log(response);
+      })
+    }
+
     ctrl.createEntry = function(newEntry){
         $http({
         method: "POST",
