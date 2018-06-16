@@ -1,7 +1,0 @@
-<div ng-controller="homepageCtrl">
-  part 1
-  <input type="text" name='newEntry' ng-model='$ctrl.post'> 
-  <input type="button" ng-click='$ctrl.updateEntry($ctrl.post)' value="Enter">
- 
-  <entry ng-repeat="entry in $ctrl.entries track by entry.id" name="entry" on-delete='$ctrl.deleteEntry(id)'></entry>
-</div>

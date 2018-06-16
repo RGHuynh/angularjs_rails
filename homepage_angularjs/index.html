@@ -9,15 +9,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.7.0/angular-route.min.js"></script>
   <script src="./src/app.module.js"></script>
-  <script src="./src/homepage/homepage.js"></script>
-  <script src="./src/homepage/homepageCtrl.js"></script>
+  <script src="./src/app.routes.js"></script>
+  <script src="./src/homepage/homepage.component.js"></script>
   <script src="./src/entry/entry.js"></script>
   <script src="./src/entry/entryCtrl.js"></script>
 </head>
 <body ng-app='myApp'>
-
-  <homepage-List></homepage-List>
-
+  <div ng-view></div>
 </body>
 
 </html>

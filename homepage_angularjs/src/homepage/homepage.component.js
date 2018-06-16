@@ -1,18 +1,23 @@
 (function(){
-  angular
-  .module('myApp')
-  .controller('homepageCtrl', ['$http', function($http){
+  'use strict';
+
+  const config = {
+    templateUrl: '../src/homepage/homepage.component.html',
+    controller: homepageCtrl
+  }
+
+  function homepageCtrl($http) {
     var ctrl = this ;
     ctrl.post = "";
-    ctrl.entries = {};
+    ctrl.entries = [];
 
-    ctrl.updateEntry = function(newEntry){
+    ctrl.createEntry = function(newEntry){
         $http({
         method: "POST",
         url: 'http://localhost:3000/lists',
         data: {name: newEntry}
       }).then(function successCallback(response){
-        ctrl.entries = response.data
+        ctrl.entries.push(response.data);
       });
     };
 
@@ -23,16 +28,16 @@
       });
     };
 
-
     $http({
       method: "GET",
       url: 'http://localhost:3000/lists.json'
     }).then(function successCallback(response){
       ctrl.entries = response.data;
     });
+  }
 
-  }]);
+  angular
+  .module('myApp')
+  .component('homepage', config)
+
 })();
-
-
-
