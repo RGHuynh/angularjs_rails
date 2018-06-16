@@ -13,11 +13,19 @@
 
     ctrl.updateEntry = function(id, newEntry){
       $http({
-        method: "PUT",
+        method: "PATCH",
         url: "http://localhost:3000/lists/" + id + ".json",
         data: {name: newEntry}
       }).then(function successCallback(response){
-        console.log(response);
+        for(var i = 0; i <= ctrl.entries.length; i++){
+          if(ctrl.entries[i].id === id){
+            ctrl.entries.splice(i, 1);
+            ctrl.entries.push(response.data);
+            break;
+          }
+        }
+
+
       })
     }
 
