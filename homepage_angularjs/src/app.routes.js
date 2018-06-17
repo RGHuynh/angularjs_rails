@@ -2,7 +2,7 @@ angular
   .module('myApp')
   .config(function($routeProvider){
     $routeProvider
-      .when('/homepage', {
+      .when('/', {
         template: "<homepage />",
       })
   })
