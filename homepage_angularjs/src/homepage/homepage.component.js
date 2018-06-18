@@ -40,8 +40,16 @@
     ctrl.deleteEntry = function(id){
       $http({
         method: 'DELETE',
-        url: "http://localhost:3000/lists/" + id
-      });
+        url: "http://localhost:3000/lists/" + id + '.json'
+      }).then(function successCallback(response){
+        var index;
+        for(var i = 0; i < ctrl.entries.length; i++){
+          if(ctrl.entries[i].id === id){
+            index = i;
+          }
+        }
+        ctrl.entries.splice(index, 1)
+      })
     };
 
     $http({
