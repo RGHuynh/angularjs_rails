@@ -5,7 +5,7 @@ angular
       .when('/', {
         template: "<homepage />"
       })
-      .when('/post/:id', {
+      .when('/post?', {
         template: '<post />'
       })
   })

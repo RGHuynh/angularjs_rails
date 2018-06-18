@@ -5,9 +5,26 @@
     controller: postCtrl
   }
 
-  function postCtrl(){
+  function postCtrl($http, $location){
     var ctrl = this;
-    ctrl.test = 'hello world'
+
+    ctrl.posts = [];
+    ctrl.location = $location.search().id
+
+    ctrl.getPost = function(id){
+      $http({
+        method: 'GET',
+        url: 'http://localhost:3000/posts/' + id + '.json'
+      }).then(function successCallback(response){
+        ctrl.posts.push(response.data);
+      }, function(error){
+        console.log(error);
+      })
+    }
+
+
+
+
   }
 
   angular
