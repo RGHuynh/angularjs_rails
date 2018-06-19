@@ -5,23 +5,12 @@
     controller: postCtrl
   }
 
-  function postCtrl($http, $location){
+  function postCtrl($http, $routeParams){
     var ctrl = this;
 
-    ctrl.posts = [];
-    ctrl.location = $location.search().id;
+    ctrl.post = [];
+    ctrl.location = $routeParams.id;
     ctrl.newBody = "";
-
-    ctrl.getPost = function(id){
-      $http({
-        method: 'GET',
-        url: 'http://localhost:3000/posts/' + id + '.json'
-      }).then(function successCallback(response){
-        ctrl.posts.push(response.data);
-      }, function(error){
-        console.log(error);
-      });
-    };
 
     ctrl.updateEntry = function(id, newPost){
       $http({
@@ -39,6 +28,15 @@
         }
       });
     };
+
+      $http({
+        method: 'GET',
+        url: 'http://localhost:3000/posts/' + ctrl.location + '.json'
+      }).then(function successCallback(response){
+        ctrl.post = response.data
+      }, function(error){
+        console.log(error);
+      });
 
   }
 

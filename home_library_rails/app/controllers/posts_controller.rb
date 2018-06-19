@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
+
   def show
   end
 
@@ -61,7 +62,8 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      # binding.pry
+      @post = Post.find_by({:list_id => params[:id]})
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

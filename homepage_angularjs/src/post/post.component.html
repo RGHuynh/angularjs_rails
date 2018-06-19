@@ -1,8 +1,7 @@
 part 3
 <div>
-  {{$ctrl.posts[0].title}}
-  <p>{{$ctrl.posts[0].body}}</p>
-  {{$ctrl.posts}}
+  {{$ctrl.post.title}}
+  <p>{{$ctrl.post.body}}</p>
   <input type="text" ng-model="$ctrl.newBody">
   {{$ctrl.newBody}}
   <button type="button" ng-click="$ctrl.updateEntry($ctrl.posts[0].id, $ctrl.newBody)">update</button>

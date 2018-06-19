@@ -6,13 +6,13 @@
     bindings: {
       name: '<',
       onDelete: '&',
-      onUpdate: '&',
-      onCreate: '&'
+      onUpdate: '&'
     }
   }
 
-  function entryCtrl(){
+  function entryCtrl($http){
     var ctrl = this;
+    ctrl.post = [];
     
     ctrl.newEntry = undefined;
 
@@ -24,9 +24,17 @@
       ctrl.onUpdate({id: id, newEntry: newEntry});
     };
 
-    ctrl.createPost = function(newEntry, id){
-      ctrl.onCreate({newEntry: newEntry, id: id});
-    }
+
+    // ctrl.getPost = function(id){
+    //   $http({
+    //     method: 'GET',
+    //     url: 'http://localhost:3000/posts/' + id + '.json'
+    //   }).then(function successCallback(response){
+    //     ctrl.post = response.data
+    //   }, function(error){
+    //     console.log(error);
+    //   });
+    // }
   }
   
   angular
