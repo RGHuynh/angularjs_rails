@@ -1,5 +1,5 @@
 <div>
-  <a href="#!/post?id={{$ctrl.name.id}}" ng-click="$ctrl.createPost($ctrl.name.name, $ctrl.name.id)">{{$ctrl.name.name}}</a>
+  <a ng-href="#!/post/{{$ctrl.name.id}}" ng-click="$ctrl.createPost($ctrl.name.name, $ctrl.name.id)">{{$ctrl.name.name}}</a>
   {{$ctrl.name.id}}
   <button type='button' ng-click="$ctrl.delete($ctrl.name.id)">Delete</button>
   <input type='text' ng-model='$ctrl.newEntry'>

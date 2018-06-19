@@ -27,20 +27,13 @@
       });
     };
 
-    ctrl.createPosts = function(newPost, id){
-      $http({
-        method: "POST",
-        url:'http://localhost:3000/posts',
-        data: {title: newPost, list_id: id}
-      });
-    };
-
     ctrl.createEntry = function(newEntry){
         $http({
         method: "POST",
         url: 'http://localhost:3000/lists',
         data: {name: newEntry}
       }).then(function successCallback(response){
+        ctrl.createPosts(response.data.name, response.data.id)
         ctrl.entries.push(response.data);
       });
     };
@@ -66,6 +59,16 @@
     }).then(function successCallback(response){
       ctrl.entries = response.data;
     });
+
+    ctrl.createPosts = function(newPost, id){
+      $http({
+        method: "POST",
+        url:'http://localhost:3000/posts.json',
+        data: {title: newPost, list_id: id}
+      }).then(function successCallback(response){
+        console.log(response);
+      })
+    };
     
   }
 
