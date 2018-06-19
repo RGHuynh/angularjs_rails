@@ -3,10 +3,9 @@ angular
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
-        template: "<homepage />",
+        template: "<homepage />"
+      })
+      .when('/post/:id', {
+        template: '<post />'
       })
   })
-
-
-
-

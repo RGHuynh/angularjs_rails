@@ -1,0 +1,8 @@
+part 3
+<div>
+  {{$ctrl.post.title}}
+  <p>{{$ctrl.post.body}}</p>
+  <input type="text" ng-model="$ctrl.newBody">
+  <button type="button" ng-click="$ctrl.updateEntry($ctrl.location, $ctrl.newBody)">update</button>
+</div>
+

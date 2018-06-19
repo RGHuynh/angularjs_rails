@@ -9,3 +9,10 @@ List.create!([
   { name: 'Copying and Pasting from Stack Overflow' },
   { name: 'Trying Stuff Until it Works' }
 ])
+
+Post.create!([
+  { list_id: 1,
+    title: 'Copying and Pasting from Stack Overflow',
+    body: 'welcome world'
+},
+])

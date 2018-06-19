@@ -1,7 +1,3 @@
 angular.module('myApp', [
   'ngRoute'
 ]);
-
-
-
-

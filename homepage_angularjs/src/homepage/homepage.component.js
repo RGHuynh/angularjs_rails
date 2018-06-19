@@ -33,6 +33,7 @@
         url: 'http://localhost:3000/lists',
         data: {name: newEntry}
       }).then(function successCallback(response){
+        ctrl.createPosts(response.data.name, response.data.id)
         ctrl.entries.push(response.data);
       });
     };
@@ -40,8 +41,16 @@
     ctrl.deleteEntry = function(id){
       $http({
         method: 'DELETE',
-        url: "http://localhost:3000/lists/" + id
-      });
+        url: "http://localhost:3000/lists/" + id + '.json'
+      }).then(function successCallback(response){
+        var index;
+        for(var i = 0; i < ctrl.entries.length; i++){
+          if(ctrl.entries[i].id === id){
+            index = i;
+          }
+        }
+        ctrl.entries.splice(index, 1);
+      })
     };
 
     $http({
@@ -50,7 +59,16 @@
     }).then(function successCallback(response){
       ctrl.entries = response.data;
     });
-    
+
+    ctrl.createPosts = function(newPost, id){
+      $http({
+        method: "POST",
+        url:'http://localhost:3000/posts.json',
+        data: {title: newPost, list_id: id}
+      }).then(function successCallback(response){
+        console.log(response);
+      })
+    };
   }
 
   angular
