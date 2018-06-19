@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20180618194031) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "list_id"
+    t.integer  "list_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["list_id"], name: "index_posts_on_list_id", using: :btree
+  add_index "posts", ["list_id"], name: "index_posts_on_list_id", unique: true, using: :btree
 
   add_foreign_key "posts", "lists"
 end

@@ -2,5 +2,5 @@
   <input type="text" name='newEntry' ng-model='$ctrl.post'> 
   <input type="button" ng-click='$ctrl.createEntry($ctrl.post)' value="Enter">
  
-  <entry ng-if="$ctrl.entries.length !== 0" ng-repeat="entry in $ctrl.entries track by entry.id" name="entry" on-delete='$ctrl.deleteEntry(id)' on-update='$ctrl.updateEntry(id, newEntry)'></entry>
+  <entry ng-if="$ctrl.entries.length !== 0" ng-repeat="entry in $ctrl.entries track by entry.id" name="entry" on-delete='$ctrl.deleteEntry(id)' on-update='$ctrl.updateEntry(id, newEntry)' on-create='$ctrl.createPosts(newEntry, id)'></entry>
 </div>

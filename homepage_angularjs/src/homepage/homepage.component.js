@@ -27,6 +27,14 @@
       });
     };
 
+    ctrl.createPosts = function(newPost, id){
+      $http({
+        method: "POST",
+        url:'http://localhost:3000/posts',
+        data: {title: newPost, list_id: id}
+      });
+    };
+
     ctrl.createEntry = function(newEntry){
         $http({
         method: "POST",
@@ -48,7 +56,7 @@
             index = i;
           }
         }
-        ctrl.entries.splice(index, 1)
+        ctrl.entries.splice(index, 1);
       })
     };
 

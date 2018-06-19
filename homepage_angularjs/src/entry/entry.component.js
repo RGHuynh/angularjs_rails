@@ -6,7 +6,8 @@
     bindings: {
       name: '<',
       onDelete: '&',
-      onUpdate: '&'
+      onUpdate: '&',
+      onCreate: '&'
     }
   }
 
@@ -22,6 +23,10 @@
     ctrl.update = function(id, newEntry){
       ctrl.onUpdate({id: id, newEntry: newEntry});
     };
+
+    ctrl.createPost = function(newEntry, id){
+      ctrl.onCreate({newEntry: newEntry, id: id});
+    }
   }
   
   angular
